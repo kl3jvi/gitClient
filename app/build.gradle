@@ -34,6 +34,10 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildFeatures {
+        viewBinding true
+        dataBinding true
+    }
 }
 
 dependencies {
@@ -56,7 +60,7 @@ dependencies {
     implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
 
     def livedataVersion = "2.4.1"
-    def viewModelVersion = "2.5.0-alpha03"
+    def viewModelVersion = "2.5.0-alpha04"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$livedataVersion"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$viewModelVersion"
 
@@ -64,7 +68,7 @@ dependencies {
     implementation "androidx.fragment:fragment-ktx:$fragmentVersion"
     // by viewModels() delegate provider
 
-    def lifecycle_version = "2.4.0"
+    def lifecycle_version = "2.5.0-alpha03"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
 
     // Coroutines
