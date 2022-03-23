@@ -1,4 +1,4 @@
-package com.kl3jvi.payconiq.data
+package com.kl3jvi.payconiq.data.remote
 
 import javax.inject.Inject
 

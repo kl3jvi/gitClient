@@ -1,8 +1,8 @@
 package com.kl3jvi.payconiq.di
 
 import com.kl3jvi.payconiq.common.BASE_URL
-import com.kl3jvi.payconiq.data.GithubClient
-import com.kl3jvi.payconiq.data.GithubService
+import com.kl3jvi.payconiq.data.remote.GithubClient
+import com.kl3jvi.payconiq.data.remote.GithubService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
