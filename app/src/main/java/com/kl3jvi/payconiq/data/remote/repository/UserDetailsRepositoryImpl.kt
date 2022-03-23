@@ -13,7 +13,7 @@ class UserDetailsRepositoryImpl @Inject constructor(
     private val apiClient: GithubClient,
     private val ioDispatcher: CoroutineDispatcher
 ) : UserDetailsRepository {
-    override suspend fun getUserDetails(username: String) = flow {
+    override fun getUserDetails(username: String) = flow {
         emit(Resource.Loading())
         try {
             val result = apiClient.getUserDetails(username).toUserDetails()

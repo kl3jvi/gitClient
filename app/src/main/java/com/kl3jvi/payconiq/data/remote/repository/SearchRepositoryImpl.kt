@@ -13,7 +13,7 @@ class SearchRepositoryImpl @Inject constructor(
     private val apiClient: GithubClient,
     private val ioDispatcher: CoroutineDispatcher
 ) : SearchRepository {
-    override suspend fun searchUser(query: String) = flow {
+    override fun searchUser(query: String) = flow {
         emit(Resource.Loading())
         try {
             val result =

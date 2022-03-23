@@ -5,6 +5,5 @@ import com.kl3jvi.payconiq.domain.model.UserDetails
 import kotlinx.coroutines.flow.Flow
 
 interface UserDetailsRepository {
-    suspend fun getUserDetails(username: String): Flow<Resource<UserDetails>>
-
+    fun getUserDetails(username: String): Flow<Resource<UserDetails>>
 }

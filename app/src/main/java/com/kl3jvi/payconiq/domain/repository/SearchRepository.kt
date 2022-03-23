@@ -5,5 +5,5 @@ import com.kl3jvi.payconiq.domain.model.UserSearchedData
 import kotlinx.coroutines.flow.Flow
 
 interface SearchRepository {
-    suspend fun searchUser(query: String): Flow<Resource<List<UserSearchedData>>>
+    fun searchUser(query: String): Flow<Resource<List<UserSearchedData>>>
 }
