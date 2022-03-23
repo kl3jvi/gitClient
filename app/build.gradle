@@ -109,11 +109,27 @@ dependencies {
     def splashScreenVersion = "1.0.0-beta01"
     implementation "androidx.core:core-splashscreen:$splashScreenVersion"
 
+    //palette
+    implementation 'com.android.support:palette-v7:28.0.0'
 
-    def paginationVersion = "3.1.1"
-    implementation "androidx.paging:paging-runtime-ktx:$paginationVersion"
 
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    // Testing
+    def junit = '4.13.2'
+    testImplementation "junit:junit:$junit"
+
+    def mockwebserver = '4.9.1'
+    testImplementation "com.squareup.okhttp3:mockwebserver:$mockwebserver"
+
+    def mockito = '4.2.0'
+    testImplementation "org.mockito:mockito-core:$mockito"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
+
+    def googleTruth = '1.1.3'
+    testImplementation "com.google.truth:truth:$googleTruth"
+
+    def androidXTestVersion = '1.4.0'
+    testImplementation "androidx.test:core-ktx:$androidXTestVersion"
+
+    def coreTestingVersion = '2.1.0'
+    testImplementation "androidx.arch.core:core-testing:$coreTestingVersion"
 }

@@ -33,24 +33,25 @@
             tools:background="@color/colorPrimary"
             tools:ignore="UnusedAttribute">
 
-            <androidx.appcompat.widget.AppCompatImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/image"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:layout_margin="20dp"
                 android:scaleType="center"
-                app:image="@{searchInfo.avatarUrl}"
+                app:paletteImage="@{searchInfo.avatarUrl}"
+                app:paletteView="@{cardView}"
+
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:src="@tools:sample/avatars"
-                />
+                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.RoundCorners"
+                tools:src="@tools:sample/avatars" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:elevation="4dp"
                 android:gravity="center"
                 android:maxLines="1"
                 android:padding="12dp"

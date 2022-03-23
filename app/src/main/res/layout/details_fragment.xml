@@ -34,13 +34,14 @@
             android:layout_width="190dp"
             android:layout_height="190dp"
             android:elevation="6dp"
-            app:image="@{userDetails.avatarUrl}"
+            app:paletteImage="@{userDetails.avatarUrl}"
+            app:paletteView="@{header}"
             app:layout_constraintBottom_toBottomOf="@+id/header"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="@+id/header"
             app:layout_constraintTop_toTopOf="@+id/header"
-            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.Circle"
             tools:src="@tools:sample/avatars" />
 
         <androidx.appcompat.widget.AppCompatTextView
