@@ -56,6 +56,9 @@ data class UserSearchedDataDto(
     val url: String
 )
 
+/**
+ * Transform Network Model to Ui Model
+ */
 fun UserSearchedDataDto.toUserSearchedData(): UserSearchedData {
     return UserSearchedData(
         githubUsername = login,
