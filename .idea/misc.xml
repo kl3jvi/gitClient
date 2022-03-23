@@ -9,9 +9,10 @@
         <entry key="app/src/main/res/drawable/search_bg.xml" value="0.1495" />
         <entry key="app/src/main/res/drawable/search_icon.xml" value="0.1495" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25925925925925924" />
-        <entry key="app/src/main/res/layout/details_fragment.xml" value="0.19947916666666668" />
+        <entry key="app/src/main/res/layout/details_fragment.xml" value="0.25" />
         <entry key="app/src/main/res/layout/home_fragment.xml" value="0.2" />
         <entry key="app/src/main/res/layout/item_search_users.xml" value="0.37604166666666666" />
+        <entry key="app/src/main/res/layout/layout_about_bio.xml" value="0.240625" />
       </map>
     </option>
   </component>

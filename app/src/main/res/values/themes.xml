@@ -31,5 +31,13 @@
         <item name="cornerSizeBottomRight">20%</item>
     </style>
 
+    <style name="Body2">
+        <item name="android:textSize">@dimen/text_14</item>
+        <item name="maxLines">2</item>
+    </style>
 
+    <style name="Headline6">
+        <item name="android:textSize">@dimen/text_20</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 </resources>
