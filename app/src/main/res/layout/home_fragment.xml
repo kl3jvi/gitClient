@@ -29,16 +29,26 @@
             app:searchIcon="@drawable/search_icon"
             tools:ignore="RtlSymmetry" />
 
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/listRv"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            tools:listitem="@layout/item_search_users"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:spanCount="2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/main_search" />
+            app:layout_constraintTop_toBottomOf="@+id/main_search"
+            app:spanCount="2"
+            tools:listitem="@layout/item_search_users" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

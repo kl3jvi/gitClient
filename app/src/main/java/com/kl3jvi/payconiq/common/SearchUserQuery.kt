@@ -7,5 +7,6 @@ import androidx.appcompat.widget.SearchView
  * implementing things I don't use on view :)
  */
 interface SearchUserQuery : SearchView.OnQueryTextListener {
-    override fun onQueryTextSubmit (newText: String?) = false
+    override fun onQueryTextSubmit(newText: String?): Boolean = false
+
 }

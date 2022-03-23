@@ -24,7 +24,11 @@ class HomeViewModel @Inject constructor(
     private val _error = MutableStateFlow<String?>(null)
     val error: StateFlow<String?> = _error
 
-    val queryString = MutableStateFlow("")
+
+    private val _loadingState = MutableStateFlow<Boolean>(false)
+    val loadingState: StateFlow<Boolean> = _loadingState
+
+    val queryString = MutableStateFlow("#")
 
     init {
         searchData()
@@ -37,11 +41,16 @@ class HomeViewModel @Inject constructor(
                     when (result) {
                         is Resource.Error -> {
                             _error.value = result.message
+                            _searchList.value = null
+                            _loadingState.value = false
                         }
                         is Resource.Success -> {
                             _searchList.value = result.data
+                            _loadingState.value = false
                         }
-                        else -> {}
+                        is Resource.Loading -> {
+                            _loadingState.value = true
+                        }
                     }
                 }
             }

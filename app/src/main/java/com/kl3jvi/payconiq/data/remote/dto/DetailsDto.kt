@@ -7,77 +7,77 @@ import com.squareup.moshi.JsonClass
 @JsonClass(generateAdapter = true)
 data class UserDetailsDto(
     @field:Json(name = "avatar_url")
-    val avatarUrl: String,
+    val avatarUrl: String?,
     @field:Json(name = "bio")
-    val bio: String,
+    val bio: String?,
     @field:Json(name = "blog")
-    val blog: String,
+    val blog: String?,
     @field:Json(name = "company")
-    val company: String,
+    val company: String?,
     @field:Json(name = "created_at")
-    val createdAt: String,
+    val createdAt: String?,
     @field:Json(name = "email")
-    val email: Any,
+    val email: Any?,
     @field:Json(name = "events_url")
-    val eventsUrl: String,
+    val eventsUrl: String?,
     @field:Json(name = "followers")
-    val followers: Int,
+    val followers: Int?,
     @field:Json(name = "followers_url")
-    val followersUrl: String,
+    val followersUrl: String?,
     @field:Json(name = "following")
-    val following: Int,
+    val following: Int?,
     @field:Json(name = "following_url")
-    val followingUrl: String,
+    val followingUrl: String?,
     @field:Json(name = "gists_url")
-    val gistsUrl: String,
+    val gistsUrl: String?,
     @field:Json(name = "gravatar_id")
-    val gravatarId: String,
+    val gravatarId: String?,
     @field:Json(name = "hireable")
     val hireable: Boolean,
     @field:Json(name = "html_url")
-    val htmlUrl: String,
+    val htmlUrl: String?,
     @field:Json(name = "id")
-    val id: Int,
+    val id: Int?,
     @field:Json(name = "location")
-    val location: String,
+    val location: String?,
     @field:Json(name = "login")
-    val login: String,
+    val login: String?,
     @field:Json(name = "name")
-    val name: String,
+    val name: String?,
     @field:Json(name = "node_id")
-    val nodeId: String,
+    val nodeId: String?,
     @field:Json(name = "organizations_url")
-    val organizationsUrl: String,
+    val organizationsUrl: String?,
     @field:Json(name = "public_gists")
-    val publicGists: Int,
+    val publicGists: Int?,
     @field:Json(name = "public_repos")
-    val publicRepos: Int,
+    val publicRepos: Int?,
     @field:Json(name = "received_events_url")
-    val receivedEventsUrl: String,
+    val receivedEventsUrl: String?,
     @field:Json(name = "repos_url")
-    val reposUrl: String,
+    val reposUrl: String?,
     @field:Json(name = "site_admin")
-    val siteAdmin: Boolean,
+    val siteAdmin: Boolean?,
     @field:Json(name = "starred_url")
-    val starredUrl: String,
+    val starredUrl: String?,
     @field:Json(name = "subscriptions_url")
-    val subscriptionsUrl: String,
+    val subscriptionsUrl: String?,
     @field:Json(name = "twitter_username")
-    val twitterUsername: String,
+    val twitterUsername: String?,
     @field:Json(name = "type")
-    val type: String,
+    val type: String?,
     @field:Json(name = "updated_at")
-    val updatedAt: String,
+    val updatedAt: String?,
     @field:Json(name = "url")
-    val url: String
+    val url: String?
 )
 
 fun UserDetailsDto.toUserDetails(): UserDetails {
     return UserDetails(
-        avatarUrl = avatarUrl,
-        bio = bio,
-        followers = followers,
-        following = following,
-        name = name
+        avatarUrl = avatarUrl.orEmpty(),
+        bio = bio.orEmpty(),
+        followers = followers ?: -1,
+        following = following ?: -1,
+        name = name.orEmpty()
     )
 }

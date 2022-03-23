@@ -17,7 +17,7 @@ class SearchRepositoryImpl @Inject constructor(
         emit(Resource.Loading())
         try {
             val result =
-                apiClient.searchUser(query = query).items.map { it.toUserSearchedData() }
+                apiClient.searchUser(query = query).items?.map { it.toUserSearchedData() }
             emit(Resource.Success(result))
         } catch (e: Exception) {
             emit(Resource.Error(e.localizedMessage))

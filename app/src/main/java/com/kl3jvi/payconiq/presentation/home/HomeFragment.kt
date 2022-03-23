@@ -2,6 +2,7 @@ package com.kl3jvi.payconiq.presentation.home
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -35,6 +36,7 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
     private fun initViews() {
         binding.listRv.layoutManager = GridLayoutManager(requireContext(), 2)
         binding.listRv.adapter = adapter
+        binding.progressBar.isVisible = adapter.itemCount != 0
         binding.mainSearch.setOnQueryTextListener(object : SearchUserQuery {
             override fun onQueryTextChange(query: String): Boolean {
                 search(query = query)
@@ -47,15 +49,9 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
         searchJob?.cancel()
         searchJob = lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                launch {
-                    viewModel.queryString.value = query
-                }
+                launch { viewModel.queryString.value = query }
 
-                launch {
-                    viewModel.searchList.collectLatest {
-                        adapter.submitList(it)
-                    }
-                }
+                launch { viewModel.searchList.collectLatest { adapter.submitList(it) } }
 
                 launch {
                     viewModel.error.collect { error ->
@@ -65,7 +61,16 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
                         }
                     }
                 }
+
+                launch {
+                    viewModel.loadingState.collect { isLoading ->
+                        binding.listRv.isVisible = !isLoading
+                        binding.progressBar.isVisible = isLoading
+                    }
+                }
             }
         }
     }
+
+
 }
