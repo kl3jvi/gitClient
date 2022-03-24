@@ -48,9 +48,6 @@ class HomeViewModel @Inject constructor(
                             _searchList.value = result.data
                             _loadingState.value = false
                         }
-                        is Resource.Loading -> {
-                            _loadingState.value = true
-                        }
                     }
                 }
             }

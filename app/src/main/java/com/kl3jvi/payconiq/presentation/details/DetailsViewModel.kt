@@ -51,7 +51,6 @@ class DetailsViewModel @Inject constructor(
                     is Resource.Error -> {
                         Log.e("Error", result.message.toString())
                     }
-                    is Resource.Loading -> {}
                     is Resource.Success -> {
                         _userDetails.value = result.data
                     }

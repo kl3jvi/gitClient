@@ -14,7 +14,6 @@ class SearchRepositoryImpl @Inject constructor(
     private val ioDispatcher: CoroutineDispatcher
 ) : SearchRepository {
     override fun searchUser(query: String) = flow {
-        emit(Resource.Loading())
         try {
             val result =
                 apiClient.searchUser(query = query).items?.map { it.toUserSearchedData() }

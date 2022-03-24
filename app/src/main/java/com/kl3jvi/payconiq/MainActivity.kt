@@ -21,7 +21,10 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController)
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        return navController.navigateUp() || super.onSupportNavigateUp()
-    }
+    /**
+     * Enables back arrow on [DetailsFragment]
+     */
+    override fun onSupportNavigateUp() =
+        navController.navigateUp() || super.onSupportNavigateUp()
+
 }

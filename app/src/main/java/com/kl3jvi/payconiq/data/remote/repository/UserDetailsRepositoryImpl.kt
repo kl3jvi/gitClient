@@ -14,7 +14,6 @@ class UserDetailsRepositoryImpl @Inject constructor(
     private val ioDispatcher: CoroutineDispatcher
 ) : UserDetailsRepository {
     override fun getUserDetails(username: String) = flow {
-        emit(Resource.Loading())
         try {
             val result = apiClient.getUserDetails(username).toUserDetails()
             emit(Resource.Success(result))
