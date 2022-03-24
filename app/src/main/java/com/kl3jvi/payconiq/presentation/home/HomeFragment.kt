@@ -36,7 +36,6 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
     private fun initViews() {
         binding.listRv.layoutManager = GridLayoutManager(requireContext(), 2)
         binding.listRv.adapter = adapter
-        binding.progressBar.isVisible = adapter.itemCount != 0
         binding.mainSearch.setOnQueryTextListener(object : SearchUserQuery {
             override fun onQueryTextChange(query: String): Boolean {
                 search(query = query)
@@ -59,13 +58,6 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
                             Snackbar.make(binding.root, it, Snackbar.LENGTH_LONG).show()
                             viewModel.onErrorShown()
                         }
-                    }
-                }
-
-                launch {
-                    viewModel.loadingState.collect { isLoading ->
-                        binding.listRv.isVisible = !isLoading
-                        binding.progressBar.isVisible = isLoading
                     }
                 }
             }

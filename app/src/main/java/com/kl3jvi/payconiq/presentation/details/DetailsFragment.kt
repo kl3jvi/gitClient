@@ -1,7 +1,6 @@
 package com.kl3jvi.payconiq.presentation.details
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -9,6 +8,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.navArgs
+import com.google.android.material.snackbar.Snackbar
 import com.kl3jvi.payconiq.R
 import com.kl3jvi.payconiq.common.viewBinding
 import com.kl3jvi.payconiq.databinding.DetailsFragmentBinding
@@ -30,13 +30,23 @@ class DetailsFragment : Fragment(R.layout.details_fragment) {
         lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 launch {
-                    viewModel.userDetails.collect { userDetails ->
-                        Log.e("Data", userDetails.toString())
+                    viewModel.githubUsernamePassed.value = userDetails.searchData.githubUsername
+                }
 
+                launch {
+                    viewModel.userDetails.collect { userDetails ->
                         userDetails?.let {
-                            Log.e("Data", it.toString())
                             binding.userDetails = it
                             binding.executePendingBindings()
+                        }
+                    }
+                }
+
+                launch {
+                    viewModel.error.collect { error ->
+                        error?.let {
+                            Snackbar.make(binding.root, it, Snackbar.LENGTH_LONG).show()
+                            viewModel.onErrorShown()
                         }
                     }
                 }
