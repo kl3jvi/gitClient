@@ -6,4 +6,12 @@ data class UserDetails(
     val followers: Int,
     val following: Int,
     val name: String
-)
+) {
+    fun getFollowersNum(): String {
+        return followers.toString()
+    }
+
+    fun getFollowingNum(): String {
+        return following.toString()
+    }
+}

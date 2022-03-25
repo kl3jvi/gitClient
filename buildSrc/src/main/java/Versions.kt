@@ -19,6 +19,7 @@ object Versions {
     const val splashScreenVersion = "1.0.0-beta02"
     const val paletteVersion = "28.0.0"
     const val safeNavArgsVersion = "2.4.1"
+    const val motionLayout = "1.2.0"
 
     object Moshi {
         const val moshiVersion = "1.13.0"
@@ -33,6 +34,7 @@ object Versions {
 
     object Testing {
         const val junit = "4.13.2"
+        const val junitKtx = "1.1.3"
         const val mockito = "4.2.0"
         const val googleTruth = "1.1.3"
         const val androidXTestVersion = "1.4.0"

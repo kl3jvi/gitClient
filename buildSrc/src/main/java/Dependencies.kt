@@ -18,6 +18,7 @@ object Deps {
     val viewModel by lazy { "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.viewModelVersion}" }
 
     val fragmentKtx by lazy { "androidx.fragment:fragment-ktx:${Versions.fragmentVersion}" }
+    val motionLayout by lazy { "com.google.android.material:material:${Versions.motionLayout}" }
 
     val lifecycleRuntime by lazy { "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycleVersion}" }
     val kotlin by lazy { "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}" }
@@ -51,9 +52,12 @@ object Deps {
     val googleTruth by lazy { "com.google.truth:truth:${Versions.Testing.googleTruth}" }
     val androidXTesting by lazy { "androidx.test:core-ktx:${Versions.Testing.androidXTestVersion}" }
     val coreTesting by lazy { "androidx.arch.core:core-testing:${Versions.Testing.coreTestingVersion}" }
+    val junitKtx by lazy { "androidx.test.ext:junit-ktx:${Versions.Testing.junitKtx}" }
+
 
     val safeNavigation by lazy {"androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.safeNavArgsVersion}"}
     val hiltGradlePlugin by lazy {
         "com.google.dagger:hilt-android-gradle-plugin:${Versions.DI.hiltGradle}"
     }
+
 }
