@@ -15,8 +15,8 @@ import com.kl3jvi.payconiq.R
 object ViewBindings {
     @JvmStatic
     @BindingAdapter("paletteImage", "paletteView")
-    fun setImagePalette(view: AppCompatImageView, url: String, palettePlaceholder: View) {
-        if (url.isNotEmpty()) {
+    fun setImagePalette(view: AppCompatImageView, url: String?, palettePlaceholder: View) {
+        if (!url.isNullOrEmpty()) {
             view.load(url) {
                 crossfade(true)
                 diskCachePolicy(CachePolicy.ENABLED)
